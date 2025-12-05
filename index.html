@@ -35,36 +35,6 @@
             margin-top: 10px;
             opacity: 0.9;
         }
-<style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f2f2f2;
-            color: #222;
-        }
-
-        header {
-            background: #fff9c4;
-            padding: 40px;
-            text-align: center;
-            color: #222;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-            position: sticky;
-            top: 0;
-            z-index: 9;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            margin: 0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-        }
-
-        p.subtitulo {
-            font-size: 1.3rem;
-            margin-top: 10px;
-            opacity: 0.9;
-        }
 
         /* --- Sidebar Styles --- */
         .sidebar {
@@ -74,8 +44,7 @@
             z-index: 10;
             top: 0;
             left: 0;
-            /* CLAVE: Fondo Amarillo pastel */
-            background-color: #fff9c4; 
+            background-color: #fff9c4;
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
@@ -85,43 +54,27 @@
         .sidebar-header {
             padding: 8px 8px 8px 32px;
             font-size: 25px;
-            /* Título Muralpedia: Amarillo pastel */
-            color: #fff9c4; 
+            color: #222; /* mismo negro que el título */
             display: block;
             margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
-            /* Negritas */
-            font-weight: bold; 
+            font-weight: bold;
         }
 
         .sidebar a {
             padding: 8px 8px 8px 32px;
             text-decoration: none;
             font-size: 18px;
-            /* CLAVE: Blanco puro y brillante */
-            color: #FFFFFF; 
+            color: #222; /* mismo negro que el título */
             display: block;
             transition: 0.3s;
             cursor: pointer;
-            /* Negritas */
             font-weight: bold;
         }
 
         .sidebar a:hover {
-            color: #FFFFFF;
-            /* Hover: Marrón ligeramente más claro */
-            background-color: #6d5843; 
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-            color: white;
-            text-decoration: none;
+            color: #222;
+            background-color: #e6d788; /* hover ligeramente más oscuro */
         }
 
         .openbtn {
@@ -140,25 +93,24 @@
         #main {
             transition: margin-left .5s;
         }
-        
+
         /* --- Content/Subpage Styles --- */
         .page-content {
-            /* ESTO ASEGURA QUE EL CONTENIDO ESTÉ CENTRADO Y NO SE ESTIRE POR COMPLETO */
-            max-width: 800px; 
+            max-width: 800px;
             margin: auto;
             padding: 20px;
             font-family: Arial;
         }
 
         .content-view {
-            display: none; 
+            display: none;
             animation: fadeIn 0.5s;
         }
 
         #home-view {
-            display: block; 
+            display: block;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -199,9 +151,9 @@
             height: auto;
             object-fit: cover;
         }
-        
+
         #mural-natural .mural-container .image-row img {
-             width: 30%;
+            width: 30%;
         }
 
         .text-content p {
@@ -219,8 +171,61 @@
             margin-top: 50px;
         }
     </style>
-    </style>
 </head>
+<body>
+    <header>
+        <button class="openbtn" onclick="openNav()"><i class="fas fa-bars"></i></button>
+        <h1>Muralpedia</h1>
+        <p class="subtitulo">Archivo Digital del Arte Urbano de Lima</p>
+    </header>
+
+    <div id="mySidebar" class="sidebar" onmouseleave="closeNav()" onmouseenter="openNav()">
+        <div class="sidebar-header">Muralpedia</div>
+        <a onclick="showView('home-view')">Mural Social</a>
+        <a onclick="showView('home-view')">Mural Político</a>
+        <a onclick="showView('home-view')">Mural Cultural</a>
+        <a onclick="showView('home-view')">Mural Histórico</a>
+        <a onclick="showView('home-view')">Mural Identitario</a>
+        <a onclick="showView('home-view')">Mural Natural</a>
+        <a onclick="showView('home-view')">Mural Abstracto</a>
+        <a onclick="showView('home-view')">Mural Publicitario</a>
+        <a onclick="showView('home-view')">Mural Literario</a>
+        <a onclick="showView('home-view')">Mural Homenaje</a>
+    </div>
+
+    <div id="main">
+        <div class="page-content content-view" id="home-view">
+            <div class="mural-container">
+                <h2>Bienvenido a Muralpedia</h2>
+                <p class="text-content">Aquí encontrarás los murales más representativos de Lima...</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Muralpedia. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+
+        function showView(viewId) {
+            const views = document.querySelectorAll('.content-view');
+            views.forEach(v => v.style.display = 'none');
+            document.getElementById(viewId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
 
 
 <body>
@@ -443,6 +448,7 @@
 
 </body>
 </html>
+
 
 
 
