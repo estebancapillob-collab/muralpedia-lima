@@ -3,175 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muralpedia Lima</title>
-
-    <!-- Fuente elegante y atemporal -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-
+    <title>Muralpedia Lima: Archivo Digital del Arte Urbano</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            background-color: #e5f3e8;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f2f2f2;
+            color: #222;
         }
-
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: #0f3d28;
+            background: linear-gradient(135deg, #ff5722, #ff9800, #ffc107);
+            padding: 40px;
+            text-align: center;
             color: white;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
         }
-
-        header h1 {
+        h1 {
+            font-size: 2.8rem;
             margin: 0;
-            font-size: 26px;
-            font-weight: 600;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
         }
-
-        /* Menú hamburguesa */
-        .menu-icon {
-            font-size: 28px;
-            cursor: pointer;
+        p.subtitulo {
+            font-size: 1.3rem;
+            margin-top: 10px;
+            opacity: 0.9;
         }
-
-        /* Panel del menú */
-        nav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #184d33;
-            overflow-x: hidden;
-            transition: 0.4s;
-            padding-top: 80px;
-        }
-
-        nav a {
-            padding: 12px 40px;
-            text-decoration: none;
-            font-size: 22px;
-            color: #e6ffe9;
-            display: block;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #0d3b25;
-        }
-
-        .closebtn {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 40px;
-            cursor: pointer;
-        }
-
-        /* Estilos de secciones */
         section {
-            padding: 120px 40px 60px;
-            max-width: 1000px;
+            max-width: 800px;
             margin: auto;
+            padding: 20px;
         }
-
-        h2 {
-            font-size: 36px;
+        .mural {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        .mural h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .mural h3 {
+            font-size: 18px;
+            color: #333;
             margin-bottom: 20px;
-            color: #0f3d28;
         }
-
-        p {
-            font-size: 20px;
-            line-height: 1.5;
+        .mural img {
+            width: 100%;
+            border-radius: 15px;
         }
-
-        /* Galería */
-        .gallery {
+        .mural-images {
             display: flex;
-            flex-wrap: wrap;
             gap: 20px;
             justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
         }
-
-        .gallery img {
-            width: 30%;
-            max-width: 320px;
-            border-radius: 12px;
+        .mural-images img {
+            flex: 1 1 45%;
+            max-width: 45%;
+        }
+        .mural-text p {
+            font-size: 17px;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Menú superior -->
-    <header>
-        <h1>Muralpedia Lima</h1>
-        <span class="menu-icon" onclick="openNav()">☰</span>
-    </header>
+<header>
+    <h1>Muralpedia Lima</h1>
+    <p class="subtitulo">Archivo Digital del Arte Urbano</p>
+</header>
 
-    <!-- PANEL LATERAL -->
-    <nav id="menu">
-        <a class="closebtn" onclick="closeNav()">×</a>
-        <a href="#presentacion" onclick="closeNav()">Presentación</a>
-        <a href="#coleccion" onclick="closeNav()">Colección</a>
-        <a href="#contacto" onclick="closeNav()">Contacto</a>
-    </nav>
+<section>
 
-    <!-- PRESENTACIÓN -->
-    <section id="presentacion">
-        <h2>Presentación</h2>
-        <p>
-            Muralpedia Lima es un proyecto dedicado a registrar, visibilizar y comprender el arte urbano presente 
-            en los barrios populares de Lima. Su objetivo es mostrar el valor estético, social y cultural de los 
-            murales y graffiti que conforman la memoria visual de la ciudad.
-        </p>
-    </section>
-
-    <!-- COLECCIÓN -->
-    <section id="coleccion">
-        <h2>Colección</h2>
-        <p>
-            Aquí se presenta una selección de murales fotografiados en diferentes distritos de Lima.  
-            Cada imagen forma parte de un archivo visual en construcción que busca preservar estas expresiones 
-            urbanas antes de que sean borradas, intervenidas o reemplazadas.
-        </p>
-
-        <div class="gallery">
-            <!-- Tus imágenes aquí -->
-            <img src="WhatsApp Image 2025-12-02 at 8.49.26 PM.jpeg">
-            <img src="WhatsApp Image 2025-12-02 at 8.49.27 PM.jpeg">
-            <img src="WhatsApp Image 2025-12-02 at 8.49.28 PM.jpeg">
+    <!-- Mural René Poma -->
+    <div class="mural">
+        <h2>René Poma: Mural de historia y de homenaje</h2>
+        <h3>Artista: José Criroque</h3>
+        <div class="mural-images">
+            <img src="481237784_966954065512589_6445432419432653713_n.jpg" alt="Mural René Poma 1">
+            <img src="480910177_966953732179289_875528174089231299_n.jpg" alt="Mural René Poma 2">
         </div>
-    </section>
+        <div class="mural-text">
+            <p>El artista José Criroque realizó este mural como proyecto de arte urbano por parte de la Municipalidad de Ventanilla, en homenaje a René Poma, fotógrafo legendario y vecino fundador de Ciudad Satélite.</p>
+            <p>El mural está ubicado en El Parque Integrador La Cabaña, también denominado “El refugio del arte”, Ventanilla, Callao, Perú.</p>
+            <p>René Poma es pintado junto a su cámara, recordando su legado como primer fotógrafo de Ventanilla, interesado en captar la esencia de la comunidad.</p>
+            <p>El estilo urbano representa identidad local, cultura juvenil y arte callejero. De fondo, la playa de Ventanilla retrata su belleza y riqueza natural. Los colores vivos y saturados simbolizan orgullo, vida y optimismo.</p>
+        </div>
+    </div>
 
-    <!-- CONTACTO -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>
-            Si deseas colaborar, compartir material o realizar consultas, puedes escribir a:<br>
-            <strong>muralpedialima@gmail.com</strong>
-        </p>
-    </section>
+    <!-- Mural Cerro Culebra -->
+    <div class="mural">
+        <h2>Arqueología de Cerro Culebra: Reflejo de la cultura</h2>
+        <h3>Artista: Manuel Arias</h3>
+        <div class="mural-images">
+            <img src="480980566_966953948845934_6308306825100170503_n.jpg" alt="Mural de Cerro Culebra - Imagen 1">
+            <img src="481009853_966953942179268_5691661461733904052_n.jpg" alt="Mural de Cerro Culebra - Imagen 2">
+        </div>
+        <div class="mural-text">
+            <p>Manuel Arias realizó un mural de la zona arqueológica de Cerro Culebra, retratando patrones polícromos de peces y serpientes que inspiran la obra.</p>
+            <p>Las aves pintadas destacan la biodiversidad local. La mujer con ojos cerrados simboliza conexión con la naturaleza y serenidad.</p>
+            <p>Ubicado en El Parque Integrador La Cabaña, este mural permite revalorar la historia y reafirmar la identidad local.</p>
+        </div>
+    </div>
 
-    <script>
-        function openNav() {
-            document.getElementById("menu").style.width = "250px";
-        }
+    <!-- Mural Pesca del Día -->
+    <div class="mural">
+        <h2>Pesca del día: El hombre y el mar</h2>
+        <h3>Artista: Huansii (Pseudónimo)</h3>
+        <div class="mural-images">
+            <img src="images.jpeg" alt="Mural La Pesca del Día 1">
+            <img src="images (1).jpeg" alt="Mural La Pesca del Día 2">
+            <img src="images (2).jpeg" alt="Mural La Pesca del Día 3">
+        </div>
+        <div class="mural-text">
+            <p>El mural de Huansii realizado en octubre de 2025 retrata la biodiversidad y la gente de Ventanilla.</p>
+            <p>Los colores brillantes y la composición diversa reflejan la identidad cultural costera, con peces, aves y un mototaxi como símbolos de vida cotidiana y esfuerzo diario.</p>
+            <p>Este mural exalta la identidad colectiva y permite valorar la biodiversidad.</p>
+        </div>
+    </div>
 
-        function closeNav() {
-            document.getElementById("menu").style.width = "0";
-        }
-    </script>
+    <!-- Mural Acción Poética -->
+    <div class="mural">
+        <h2>¿Qué eres si para tenerte solo basta con mirar al cielo?: Poesía en la pared</h2>
+        <h3>Artista: Acción Poética</h3>
+        <div class="mural-images">
+            <img src="quc3a9-eres-si-para-tenerte-cielo-nilton-santiago.jpg" alt="Acción Poética 1">
+            <img src="WhatsApp Image 2025-12-02 at 8.35.22 PM.jpeg" alt="Acción Poética 2">
+        </div>
+        <div class="mural-text">
+            <p>Ubicado en el Jr. Teniente Arístides del Carpio - Lima. La obra integra un trozo de espejo, invitando al espectador a verse dentro del barrio y reflexionar sobre identidad.</p>
+            <p>El retrato femenino en tonos azules combina la introspección con la integración del entorno reflejado.</p>
+        </div>
+    </div>
+
+    <!-- Mural Lexfry -->
+    <div class="mural">
+        <h2>Lexfry y la cultura: Conexión y La Naturaleza Mística</h2>
+        <h3>Artista: Lexfry</h3>
+        <div class="mural-images">
+            <img src="WhatsApp Image 2025-12-02 at 8.49.26 PM (2).jpeg" alt="Lexfry 1">
+            <img src="WhatsApp Image 2025-12-02 at 8.49.26 PM (3).jpeg" alt="Lexfry 2">
+        </div>
+        <div class="mural-text">
+            <p>Lexfry Art conecta la cultura contemporánea con raíces simbólicas del Perú. Participa en actividades comunitarias y sus murales mezclan historia, naturaleza y figuras humanas.</p>
+            <p>En “Conexión” representa a una mujer andina con elementos culturales como el tumi y edificaciones coloniales, puente visual entre pasado y presente.</p>
+            <p>El segundo mural muestra otra mujer andina en diálogo visual con una joven y un colibrí, explorando la fantasía natural y la convivencia entre lo espiritual y humano.</p>
+        </div>
+    </div>
+
+    <!-- Mural Colectivo -->
+    <div class="mural">
+        <h2>Ruido visual callejero: El arte del graffiti</h2>
+        <h3>Artista: Colectivo graffitero barrial</h3>
+        <div class="mural-images">
+            <img src="WhatsApp Image 2025-12-02 at 9.38.32 PM.jpeg" alt="Graffiti 1">
+            <img src="WhatsApp Image 2025-12-02 at 8.49.35 PM.jpeg" alt="Graffiti 2">
+            <img src="WhatsApp Image 2025-12-02 at 8.49.35 PM (1).jpeg" alt="Graffiti 3">
+        </div>
+        <div class="mural-text">
+            <p>Esta pared blanca es un lienzo vivo donde los grafitis se entrelazan con frases de amor, símbolos deportivos y dibujos del barrio. Cada trazo refleja la espontaneidad anónima.</p>
+            <p>Una flor en el centro irradia color y energía, creando un mosaico caótico pero armonioso.</p>
+            <p>El mural, sin autor conocido, refleja la fuerza colectiva de la comunidad, transformando la pared en un poema visual compartido.</p>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    Proyecto realizado por estudiantes de la Facultad de Letras y Ciencias Humanas — UNMSM — 2025
+</footer>
 
 </body>
 </html>
+
 
 
 
