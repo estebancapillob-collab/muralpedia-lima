@@ -1,325 +1,177 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muralpedia Lima: Archivo Digital del Arte Urbano</title>
+    <title>Muralpedia Lima</title>
 
-    <!-- Fuente moderna y profesional -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Fuente elegante y atemporal -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 
     <style>
         body {
             margin: 0;
-            font-family: "Poppins", sans-serif;
-            background: #f2f4f3;
-            color: #222;
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #e5f3e8;
         }
 
-        /* HEADER */
         header {
-            background: linear-gradient(135deg, #1b5e20, #2e7d32, #4caf50);
-            padding: 40px;
-            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #0f3d28;
             color: white;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-            position: relative;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
         }
 
-        h1 {
-            font-size: 2.8rem;
+        header h1 {
             margin: 0;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+            font-size: 26px;
+            font-weight: 600;
         }
 
-        p.subtitulo {
-            font-size: 1.3rem;
-            margin-top: 10px;
-            opacity: 0.9;
-        }
-
-        /* MENÚ HAMBURGUESA */
+        /* Menú hamburguesa */
         .menu-icon {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 30px;
+            font-size: 28px;
             cursor: pointer;
-            user-select: none;
         }
 
-        /* PANEL LATERAL */
-        .sidebar {
+        /* Panel del menú */
+        nav {
             height: 100%;
             width: 0;
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #1b1b1b;
+            background-color: #184d33;
             overflow-x: hidden;
             transition: 0.4s;
-            padding-top: 60px;
-            z-index: 10;
+            padding-top: 80px;
         }
 
-        .sidebar a {
-            padding: 12px 25px;
+        nav a {
+            padding: 12px 40px;
             text-decoration: none;
-            font-size: 18px;
-            color: #f1f1f1;
+            font-size: 22px;
+            color: #e6ffe9;
             display: block;
             transition: 0.3s;
         }
 
-        .sidebar a:hover {
-            background: #333;
+        nav a:hover {
+            background-color: #0d3b25;
         }
 
         .closebtn {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 35px;
+            top: 20px;
+            right: 25px;
+            font-size: 40px;
             cursor: pointer;
         }
 
-        /* SECCIONES */
+        /* Estilos de secciones */
         section {
-            max-width: 900px;
+            padding: 120px 40px 60px;
+            max-width: 1000px;
             margin: auto;
-            padding: 25px;
         }
 
-        .card {
-            margin: 40px 0;
-            padding: 25px;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #0f3d28;
         }
 
-        .card img {
-            border-radius: 15px;
+        p {
+            font-size: 20px;
+            line-height: 1.5;
         }
 
-        footer {
-            background: #222;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            margin-top: 50px;
+        /* Galería */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 30%;
+            max-width: 320px;
+            border-radius: 12px;
         }
     </style>
-
-    <script>
-        function openMenu() {
-            document.getElementById("sidebar").style.width = "250px";
-        }
-        function closeMenu() {
-            document.getElementById("sidebar").style.width = "0";
-        }
-    </script>
-
 </head>
 
 <body>
 
-    <!-- SIDEBAR -->
-    <div id="sidebar" class="sidebar">
-        <span class="closebtn" onclick="closeMenu()">&times;</span>
-        <a href="#presentacion">Presentación</a>
-        <a href="#coleccion">Colección</a>
-        <a href="#murales">— Murales / Graffiti</a>
-        <a href="#artesania">— Artesanía</a>
-        <a href="#musica">— Música</a>
-        <a href="#pintura">— Pintura en lienzo</a>
-        <a href="#contacto">Contacto</a>
-    </div>
-
-    <!-- HEADER -->
+    <!-- Menú superior -->
     <header>
-        <span class="menu-icon" onclick="openMenu()">&#9776;</span>
         <h1>Muralpedia Lima</h1>
-        <p class="subtitulo">Archivo Digital del Arte Urbano</p>
+        <span class="menu-icon" onclick="openNav()">☰</span>
     </header>
+
+    <!-- PANEL LATERAL -->
+    <nav id="menu">
+        <a class="closebtn" onclick="closeNav()">×</a>
+        <a href="#presentacion" onclick="closeNav()">Presentación</a>
+        <a href="#coleccion" onclick="closeNav()">Colección</a>
+        <a href="#contacto" onclick="closeNav()">Contacto</a>
+    </nav>
 
     <!-- PRESENTACIÓN -->
     <section id="presentacion">
-        <div class="card">
-            <h2>Presentación</h2>
-            <p style="text-align: justify; line-height: 1.7;">
-                Somos un proyecto académico desarrollado por estudiantes de la Facultad de Letras y Ciencias Humanas
-                de la Universidad Nacional Mayor de San Marcos. Nuestro propósito es registrar, preservar y difundir
-                el arte urbano presente en los barrios de Lima y Callao.
-                Esta plataforma reúne murales, graffiti, expresiones visuales y otros elementos culturales
-                que forman parte de la identidad popular contemporánea.
-            </p>
-        </div>
+        <h2>Presentación</h2>
+        <p>
+            Muralpedia Lima es un proyecto dedicado a registrar, visibilizar y comprender el arte urbano presente 
+            en los barrios populares de Lima. Su objetivo es mostrar el valor estético, social y cultural de los 
+            murales y graffiti que conforman la memoria visual de la ciudad.
+        </p>
     </section>
 
     <!-- COLECCIÓN -->
     <section id="coleccion">
-        <div class="card">
-            <h2>Colección</h2>
-            <p>Explora las diversas expresiones del arte urbano y cultural.</p>
+        <h2>Colección</h2>
+        <p>
+            Aquí se presenta una selección de murales fotografiados en diferentes distritos de Lima.  
+            Cada imagen forma parte de un archivo visual en construcción que busca preservar estas expresiones 
+            urbanas antes de que sean borradas, intervenidas o reemplazadas.
+        </p>
+
+        <div class="gallery">
+            <!-- Tus imágenes aquí -->
+            <img src="WhatsApp Image 2025-12-02 at 8.49.26 PM.jpeg">
+            <img src="WhatsApp Image 2025-12-02 at 8.49.27 PM.jpeg">
+            <img src="WhatsApp Image 2025-12-02 at 8.49.28 PM.jpeg">
         </div>
     </section>
-
-    <!-- MURALES -->
-    <section id="murales">
-        <div class="card">
-
-            <!-- TODO TU CONTENIDO DE MURALES PEGADO AQUÍ  -->
-
-            <h2>Murales y Graffiti</h2>
-
-            <!-- René Poma -->
-            <div style="margin-top: 35px;"></div>
-
-            <div class="card">
-                <h2>René Poma: Mural de historia y de homenaje</h2>
-                <h3>Artista: José Criroque</h3>
-
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                    <img src="481237784_966954065512589_6445432419432653713_n.jpg" style="width: 45%;">
-                    <img src="480910177_966953732179289_875528174089231299_n.jpg" style="width: 45%;">
-                </div>
-
-                <p style="text-align: justify; line-height:1.7;">
-                    El artista José Criroque realizó este mural como proyecto de arte urbano...
-                </p>
-                <p style="text-align: justify; line-height:1.7;">
-                    El mural es un reconocimiento por su contribución...
-                </p>
-                <p style="text-align: justify; line-height:1.7;">
-                    René Poma es pintado junto a su cámara...
-                </p>
-                <p style="text-align: justify; line-height:1.7;">
-                    El estilo urbano representa identidad local...
-                </p>
-            </div>
-
-            <!-- ARIAS -->
-            <div class="card">
-                <h2>Arqueología de Cerro Culebra: Reflejo de la cultura</h2>
-                <h3>Artista: Manuel Arias</h3>
-
-                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <img src="480980566_966953948845934_6308306825100170503_n.jpg" style="width: 48%;">
-                    <img src="481009853_966953942179268_5691661461733904052_n.jpg" style="width: 48%;">
-                </div>
-
-                <p style="text-align: justify; line-height:1.7;">
-                    El artista Manuel Arias realizó un mural...
-                </p>
-                <p style="text-align: justify; line-height:1.7;">
-                    Las aves pintadas con colores vibrantes...
-                </p>
-                <p style="text-align: justify; line-height:1.7;">
-                    Este mural, ubicado en El Parque Integrador La Cabaña...
-                </p>
-            </div>
-
-            <!-- HUANSII -->
-            <div class="card">
-                <h2>Pesca del día: El hombre y el mar</h2>
-                <h3>Artista: Huansii (Pseudónimo)</h3>
-
-                <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-                    <img src="images.jpeg" style="width: 30%; max-width:320px;">
-                    <img src="images (1).jpeg" style="width: 30%; max-width:320px;">
-                    <img src="images (2).jpeg" style="width: 30%; max-width:320px;">
-                </div>
-
-                <p style="text-align: justify; line-height:1.7;">
-                    El artista bajo el pseudónimo de Huansii realizó este mural...
-                </p>
-            </div>
-
-            <!-- ACCION POETICA -->
-            <div class="card">
-                <h2>¿Qué eres si para tenerte solo basta con mirar al cielo?</h2>
-                <h3>Artista: Acción Poética</h3>
-
-                <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content:center;">
-                    <img src="quc3a9-eres-si-para-tenerte-cielo-nilton-santiago.jpg" style="width:30%; max-width:320px;">
-                    <img src="WhatsApp Image 2025-12-02 at 8.35.22 PM.jpeg" style="width:30%; max-width:320px;">
-                </div>
-
-                <p style="text-align: justify; line-height:1.7;">
-                    Este mural se encuentra en el Jr. Teniente...
-                </p>
-            </div>
-
-            <!-- LEXFRY -->
-            <div class="card">
-                <h2>Lexfry y la cultura: Conexión y La Naturaleza Mística</h2>
-                <h3>Artista: Lexfry</h3>
-
-                <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content:center;">
-                    <img src="WhatsApp Image 2025-12-02 at 8.49.26 PM (2).jpeg" style="width:45%;">
-                    <img src="WhatsApp Image 2025-12-02 at 8.49.26 PM (3).jpeg" style="width:45%;">
-                </div>
-
-                <p style="text-align: justify; line-height:1.7;">
-                    Lexfry Art es un artista callejero peruano...
-                </p>
-            </div>
-
-            <!-- COLECTIVO GRAFFITI -->
-            <div class="card">
-                <h2>Ruido visual callejero: El arte del graffiti</h2>
-                <h3>Artista: Colectivo graffitero barrial</h3>
-
-                <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content:center;">
-                    <img src="WhatsApp Image 2025-12-02 at 9.38.32 PM.jpeg" style="width:45%;">
-                    <img src="WhatsApp Image 2025-12-02 at 8.49.35 PM.jpeg" style="width:45%;">
-                    <img src="WhatsApp Image 2025-12-02 at 8.49.35 PM (1).jpeg" style="width:45%;">
-                </div>
-
-                <p style="text-align: justify; line-height:1.7;">
-                    Esta pared blanca se ha convertido en un lienzo vivo...
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- OTRAS SECCIONES VACÍAS -->
-    <section id="artesania"><div class="card"><h2>Artesanía</h2><p>Próximamente.</p></div></section>
-    <section id="musica"><div class="card"><h2>Música</h2><p>Próximamente.</p></div></section>
-    <section id="pintura"><div class="card"><h2>Pintura en lienzo</h2><p>Próximamente.</p></div></section>
 
     <!-- CONTACTO -->
     <section id="contacto">
-        <div class="card">
-            <h2>Contacto</h2>
-            <p>Correo institucional: ejemplo@unmsm.edu.pe</p>
-            <p>Responsable del proyecto: Esteban C.</p>
-        </div>
+        <h2>Contacto</h2>
+        <p>
+            Si deseas colaborar, compartir material o realizar consultas, puedes escribir a:<br>
+            <strong>muralpedialima@gmail.com</strong>
+        </p>
     </section>
 
-    <footer>
-        Proyecto realizado por estudiantes de la Facultad de Letras y Ciencias Humanas — UNMSM — 2025
-    </footer>
+    <script>
+        function openNav() {
+            document.getElementById("menu").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("menu").style.width = "0";
+        }
+    </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
