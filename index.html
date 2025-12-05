@@ -364,40 +364,32 @@
     <footer>
         <p>¡Contáctanos! - +51 984 178 885 - esteban.capillo.b@gmail.com</p>
     </footer>
+
     <script>
 const sidebar = document.getElementById("mySidebar");
 const main = document.getElementById("main");
-let sidebarOpen = false; // controla si la barra está abierta por clic
 
-// Función para abrir la barra por clic
 function openNav() {
     sidebar.style.width = "250px";
     main.style.marginLeft = "250px";
-    sidebarOpen = true; // queda abierta
 }
 
-// Función para cerrar la barra por clic
 function closeNav() {
     sidebar.style.width = "0";
     main.style.marginLeft = "0";
-    sidebarOpen = false; // queda cerrada
 }
 
-// Hover automático solo si la barra NO está abierta por clic
-sidebar.addEventListener("mouseenter", () => {
-    if (!sidebarOpen) {
-        sidebar.style.width = "250px";
-        main.style.marginLeft = "250px";
-    }
-});
-
-sidebar.addEventListener("mouseleave", () => {
-    if (!sidebarOpen) {
-        sidebar.style.width = "0";
-        main.style.marginLeft = "0";
-    }
-});
+function showView(viewId) {
+    // Oculta todas las vistas
+    let views = document.querySelectorAll('.content-view');
+    views.forEach(v => v.style.display = 'none');
+    // Muestra la vista seleccionada
+    document.getElementById(viewId).style.display = 'block';
+    // Cierra la barra lateral automáticamente al seleccionar una sección
+    closeNav();
+}
 </script>
+
 
 
 
